@@ -1,3 +1,3 @@
 pandas
 ipyleaflet
-xml.etree.ElementTree
+xml.etree
