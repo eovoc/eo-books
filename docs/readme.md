@@ -1,1 +1,4 @@
 readme.md
+
+
+* [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/eovoc/eo-books/blob/main/docs/opensearch.ipynb) [opensearch.ipynb](https://github.com/eovoc/eo-books/blob/main/docs/opensearch.ipynb) explains the use of the Opensearch with Atom response interfaces provided by the ESA EO-CAT and FedEO catalogues.
