@@ -1,0 +1,1754 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"$id": "mdj.json",
+	"definitions": {
+		"Abstract_ConstraintUnion": {
+			"$comment": "Abstract_ConstraintUnion",
+			"oneOf": [
+				{
+					"$ref": "#/definitions/MD_Constraints"
+				},
+				{
+					"$ref": "#/definitions/MD_LegalConstraints"
+				},
+				{
+					"$ref": "#/definitions/MD_SecurityConstraints"
+				}
+			]
+		},
+		"Abstract_DistributionUnion": {
+			"$comment": "Abstract_DistributionUnion",
+			"$ref": "#/definitions/MD_Distribution"
+		},
+		"Abstract_ExtentUnion": {
+			"$comment": "Abstract_ExtentUnion",
+			"$ref": "#/definitions/EX_Extent"
+		},
+		"Abstract_FormatUnion": {
+			"$comment": "Abstract_FormatUnion",
+			"$ref": "#/definitions/MD_Format"
+		},
+		"Abstract_LineageInformationUnion": {
+			"$comment": "Abstract_LineageInformationUnion",
+			"$ref": "#/definitions/LI_Lineage"
+		},
+		"Abstract_MaintenanceUnion": {
+			"$comment": "Abstract_MaintenanceUnion",
+			"$ref": "#/definitions/MD_MaintenanceInformation"
+		},
+		"Abstract_MetadataExtension": {
+			"$comment": "Abstract_MetadataExtension",
+			"type": "object"
+		},
+		"Abstract_MetadataUnion": {
+			"$comment": "Abstract_MetadataUnion",
+			"$ref": "#/definitions/MD_Metadata"
+		},
+		"Abstract_ResourceDescriptionUnion": {
+			"$comment": "Abstract_ResourceDescriptionUnion",
+			"$ref": "#/definitions/MD_DataIdentification"
+		},
+		"Abstract_StandardOrderProcess": {
+			"$comment": "Abstract_StandardOrderProcess",
+			"type": "object"
+		},
+		"CI_Address": {
+			"$comment": "CI_Address",
+			"type": "object",
+			"properties": {
+				"deliveryPoint": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"uniqueItems": true
+				},
+				"city": {
+					"type": "string"
+				},
+				"administrativeArea": {
+					"type": "string"
+				},
+				"postalCode": {
+					"type": "string"
+				},
+				"country": {
+					"type": "string"
+				},
+				"electronicMailAddress": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"uniqueItems": true
+				}
+			}
+		},
+		"CI_Citation": {
+			"$comment": "CI_Citation",
+			"type": "object",
+			"properties": {
+				"title": {
+					"type": "string"
+				},
+				"alternateTitle": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"uniqueItems": true
+				},
+				"date": {
+					"$ref": "#/definitions/CI_Date"
+				},
+				"edition": {
+					"type": "string"
+				},
+				"editionDate": {
+					"$ref": "#/definitions/DateOrDateTime"
+				},
+				"identifier": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/MD_Identifier"
+					},
+					"uniqueItems": true
+				},
+				"citedResponsibleParty": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CI_Responsibility"
+					},
+					"uniqueItems": true
+				},
+				"presentationForm": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CI_PresentationFormCode"
+					},
+					"uniqueItems": true
+				},
+				"series": {
+					"$ref": "#/definitions/CI_Series"
+				},
+				"otherCitationDetails": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"uniqueItems": true
+				},
+				"ISBN": {
+					"type": "string"
+				},
+				"ISSN": {
+					"type": "string"
+				},
+				"onlineResource": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CI_OnlineResource"
+					},
+					"uniqueItems": true
+				}
+			},
+			"required": [
+				"title"
+			]
+		},
+		"CI_Contact": {
+			"$comment": "CI_Contact",
+			"type": "object",
+			"properties": {
+				"phone": {
+					"$ref": "#/definitions/CI_Telephone"
+				},
+				"address": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CI_Address"
+					},
+					"uniqueItems": true
+				},
+				"onlineResource": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CI_OnlineResource"
+					},
+					"uniqueItems": true
+				},
+				"hoursOfService": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"uniqueItems": true
+				},
+				"contactInstructions": {
+					"type": "string"
+				},
+				"contactType": {
+					"type": "string"
+				}
+			}
+		},
+		"CI_Date": {
+			"$comment": "CI_Date",
+			"type": "object",
+			"$comment": "Could also use patternProperties with the values from the CI_DateTypeCode codelist",
+			"additionalProperties": {
+				"$ref": "#/definitions/DateOrDateTime"
+			}
+		},
+		"DateOrDateTime": {
+			"$comment": "DateOrDateTime",
+			"anyOf": [
+				{
+					"type": "string",
+					"format": "date-time"
+				},
+				{
+					"type": "string",
+					"format": "date"
+				},
+				{
+					"type": "string",
+					"description": "month and year",
+					"pattern": "^[0-9]{4}-[0-1][0-9]$"
+				},
+				{
+					"type": "string",
+					"description": "year",
+					"pattern": "^[0-9]{4}$"
+				}
+			]
+		},
+		"CI_Individual": {
+			"$comment": "CI_Individual",
+			"type": "object",
+			"properties": {
+				"type": {
+					"const": "CI_Individual"
+				},
+				"name": {
+					"type": "string"
+				},
+				"contactInfo": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CI_Contact"
+					},
+					"uniqueItems": true
+				},
+				"partyIdentifier": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/MD_Identifier"
+					},
+					"uniqueItems": true
+				},
+				"positionName": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"type"
+			]
+		},
+		"CI_OnLineFunctionCode": {
+			"$comment": "CI_OnLineFunctionCode",
+			"type": "string"
+		},
+		"CI_OnlineResource": {
+			"$comment": "CI_OnlineResource",
+			"type": "object",
+			"properties": {
+				"linkage": {
+					"type": "string"
+				},
+				"protocol": {
+					"type": "string"
+				},
+				"applicationProfile": {
+					"type": "string"
+				},
+				"name": {
+					"type": "string"
+				},
+				"description": {
+					"type": "string"
+				},
+				"function": {
+					"$ref": "#/definitions/CI_OnLineFunctionCode"
+				},
+				"protocolRequest": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"linkage"
+			]
+		},
+		"CI_Organisation": {
+			"$comment": "CI_Organisation",
+			"type": "object",
+			"properties": {
+				"type": {
+					"const": "CI_Organisation"
+				},
+				"name": {
+					"type": "string"
+				},
+				"contactInfo": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CI_Contact"
+					},
+					"uniqueItems": true
+				},
+				"partyIdentifier": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/MD_Identifier"
+					},
+					"uniqueItems": true
+				},
+				"individual": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CI_Individual"
+					},
+					"uniqueItems": true
+				}
+			},
+			"required": [
+				"type"
+			]
+		},
+		"CI_PartyUnion": {
+			"$comment": "CI_PartyUnion",
+			"oneOf": [
+				{
+					"$ref": "#/definitions/CI_Individual"
+				},
+				{
+					"$ref": "#/definitions/CI_Organisation"
+				}
+			]
+		},
+		"CI_PresentationFormCode": {
+			"$comment": "CI_PresentationFormCode",
+			"type": "string"
+		},
+		"CI_Responsibility": {
+			"$comment": "CI_Responsibility",
+			"type": "object",
+			"properties": {
+				"party": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CI_PartyUnion"
+					},
+					"uniqueItems": true
+				},
+				"role": {
+					"$ref": "#/definitions/CI_RoleCode"
+				},
+				"extent": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/EX_Extent"
+					},
+					"uniqueItems": true
+				}
+			},
+			"required": [
+				"role"
+			]
+		},
+		"CI_RoleCode": {
+			"$comment": "CI_RoleCode",
+			"type": "string"
+		},
+		"CI_Series": {
+			"$comment": "CI_Series",
+			"type": "object",
+			"properties": {
+				"name": {
+					"type": "string"
+				},
+				"issueIdentification": {
+					"type": "string"
+				},
+				"page": {
+					"type": "string"
+				}
+			}
+		},
+		"CI_Telephone": {
+			"$comment": "CI_Telephone",
+			"type": "object",
+			"additionalProperties": {
+				"type": "string"
+			}
+		},
+		"CI_TelephoneTypeCode": {
+			"$comment": "CI_TelephoneTypeCode",
+			"type": "string"
+		},
+		"CountryCode": {
+			"$comment": "CountryCode",
+			"type": "string"
+		},
+		"DCPList": {
+			"$comment": "DCPList",
+			"type": "string"
+		},
+		"DS_AssociationTypeCode": {
+			"$comment": "DS_AssociationTypeCode",
+			"type": "string"
+		},
+		"DS_InitiativeTypeCode": {
+			"$comment": "DS_InitiativeTypeCode",
+			"type": "string"
+		},
+		"EX_Extent": {
+			"$comment": "EX_Extent",
+			"type": "object",
+			"properties": {
+				"geographicElement": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/EX_GeographicExtentUnion"
+					},
+					"minItems": 1
+				},
+				"description": {
+					"type": "string"
+				}
+			}
+		},
+		"EX_GeographicBoundingBox": {
+			"$comment": "EX_GeographicBoundingBox",
+			"type": "object",
+			"properties": {
+				"type": {
+					"const": "EX_GeographicBoundingBox"
+				},
+				"extentTypeCode": {
+					"type": "boolean",
+					"default": false
+				},
+				"westBoundLongitude": {
+					"type": "number"
+				},
+				"eastBoundLongitude": {
+					"type": "number"
+				},
+				"southBoundLatitude": {
+					"type": "number"
+				},
+				"northBoundLatitude": {
+					"type": "number"
+				}
+			},
+			"required": [
+				"type",
+				"eastBoundLongitude",
+				"northBoundLatitude",
+				"southBoundLatitude",
+				"westBoundLongitude"
+			]
+		},
+		"EX_GeographicDescription": {
+			"$comment": "EX_GeographicDescription",
+			"type": "object",
+			"properties": {
+				"type": {
+					"const": "EX_GeographicDescription"
+				},
+				"extentTypeCode": {
+					"type": "boolean",
+					"default": false
+				},
+				"geographicIdentifier": {
+					"$ref": "#/definitions/MD_Identifier"
+				}
+			},
+			"required": [
+				"type",
+				"geographicIdentifier"
+			]
+		},
+		"EX_GeographicExtentUnion": {
+			"$comment": "EX_GeographicExtentUnion",
+			"oneOf": [
+				{
+					"$ref": "#/definitions/EX_GeographicBoundingBox"
+				},
+				{
+					"$ref": "#/definitions/EX_GeographicDescription"
+				}
+			]
+		},
+		"LI_Lineage": {
+			"$comment": "LI_Lineage - updated",
+			"type": "object",
+			"properties": {
+				"source": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/LE_Source"
+					},
+					"uniqueItems": true
+				},
+				"processStep": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/LE_ProcessStep"
+					},
+					"uniqueItems": true
+				},
+				"statement": {
+					"type": "string"
+				},
+				"scope": {
+					"$ref": "#/definitions/MD_Scope"
+				},
+				"additionalDocumentation": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CI_Citation"
+					},
+					"uniqueItems": true
+				}
+			},
+			"additionalProperties": false
+		},
+		"LE_NominalResolution": {
+			"$comment": "LE_NominalResolution (added) - TBC",
+			"oneOf": [
+				{
+					"type": "object",
+					"properties": {
+						"groundResolution": {
+							"$ref": "#/definitions/MD_Identifier"
+						}
+					}
+				},
+				{
+					"type": "object",
+					"properties": {
+						"scanningResolution": {
+							"$ref": "#/definitions/MD_Identifier"
+						}
+					}
+				}
+			]
+		},
+		"LE_Source": {
+			"$comment": "LE_Source (added)",
+			"type": "object",
+			"properties": {
+				"description": {
+					"type": "string"
+				},
+				"sourceReferenceSystem": {
+					"$ref": "#/definitions/MD_ReferenceSystem"
+				},
+				"sourceCitation": {
+					"$ref": "#/definitions/CI_Citation"
+				},
+				"sourceMetadata": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CI_Citation"
+					},
+					"uniqueItems": true
+				},
+				"processedLevel": {
+					"$ref": "#/definitions/MD_Identifier"
+				},
+				"resolution": {
+					"$ref": "#/definitions/LE_NominalResolution"
+				},
+				"scope": {
+					"$ref": "#/definitions/MD_Scope"
+				},
+				"sourceStep": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/LE_ProcessStep"
+					},
+					"uniqueItems": true
+				}
+			}
+		},
+		"LE_ProcessStepReport": {
+			"$comment": "LE_ProcessStepReport (added)",
+			"type": "object",
+			"properties": {
+				"description": {
+					"type": "string"
+				},
+				"name": {
+					"type": "string"
+				},
+				"fileType": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"description"
+			]
+		},
+		"LE_Algorithm": {
+			"$comment": "LE_Algorithm (added)",
+			"type": "object",
+			"properties": {
+				"description": {
+					"type": "string"
+				},
+				"citation": {
+					"$ref": "#/definitions/CI_Citation"
+				}
+			},
+			"required": [
+				"description"
+			],
+			"additionalProperties": false
+		},
+		"LE_Processing": {
+			"$comment": "LE_Processing (added)",
+			"type": "object",
+			"properties": {
+				"algorithm": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/LE_Algorithm"
+					},
+					"uniqueItems": true
+				},
+				"identifier": {
+					"$ref": "#/definitions/MD_Identifier"
+				},
+				"softwareReference": {
+					"$ref": "#/definitions/CI_Citation"
+				},
+				"procedureDescription": {
+					"type": "string"
+				},
+				"documentation": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CI_Citation"
+					},
+					"uniqueItems": true
+				},
+				"runTimeParameters": {
+					"type": "string"
+				}
+			},
+			"additionalProperties": false
+		},
+		"LE_ProcessStep": {
+			"$comment": "LE_ProcessStep (added)",
+			"type": "object",
+			"properties": {
+				"description": {
+					"type": "string"
+				},
+				"rationale": {
+					"type": "string"
+				},
+				"stepDateTime": {
+					"$ref": "#/definitions/CI_Date"
+				},
+				"processor": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CI_Responsibility"
+					},
+					"uniqueItems": true
+				},
+				"source": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/LE_Source"
+					},
+					"uniqueItems": true
+				},
+				"reference": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CI_Citation"
+					},
+					"uniqueItems": true
+				},
+				"scope": {
+					"$ref": "#/definitions/MD_Scope"
+				},
+				"processingInformation": {
+					"$ref": "#/definitions/LE_Processing"
+				},
+				"report": {
+					"$ref": "#/definitions/LE_ProcessStepReport"
+				},
+				"output": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/LE_Source"
+					},
+					"uniqueItems": true
+				}
+			},
+			"required": [
+				"description"
+			],
+			"additionalProperties": false
+		},
+		"LanguageCode": {
+			"$comment": "LanguageCode",
+			"type": "string"
+		},
+		"MD_CellGeometryCode": {
+			"$comment": "MD_CellGeometryCode",
+			"type": "string"
+		},
+		"MD_CharacterSetCode": {
+			"$comment": "MD_CharacterSetCode",
+			"type": "string"
+		},
+		"MD_ClassificationCode": {
+			"$comment": "MD_ClassificationCode",
+			"type": "string"
+		},
+		"MD_Constraints": {
+			"$comment": "MD_Constraints",
+			"type": "object",
+			"properties": {
+				"type": {
+					"const": "MD_Constraints"
+				},
+				"useLimitation": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"uniqueItems": true
+				},
+				"constraintApplicationScope": {
+					"$ref": "#/definitions/MD_Scope"
+				},
+				"reference": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CI_Citation"
+					},
+					"uniqueItems": true
+				},
+				"responsibleParty": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CI_Responsibility"
+					},
+					"uniqueItems": true
+				}
+			},
+			"required": [
+				"type"
+			]
+		},
+		"MD_ConstraintsUnion": {
+			"$comment": "MD_ConstraintsUnion",
+			"oneOf": [
+				{
+					"$ref": "#/definitions/MD_Constraints"
+				},
+				{
+					"$ref": "#/definitions/MD_LegalConstraints"
+				},
+				{
+					"$ref": "#/definitions/MD_SecurityConstraints"
+				}
+			]
+		},
+		"MD_CoverageContentTypeCode": {
+			"$comment": "MD_CoverageContentTypeCode",
+			"type": "string"
+		},
+		"MD_DataIdentification": {
+			"$comment": "MD_DataIdentification",
+			"type": "object",
+			"properties": {
+				"citation": {
+					"$ref": "#/definitions/CI_Citation"
+				},
+				"abstract": {
+					"type": "string"
+				},
+				"purpose": {
+					"type": "string"
+				},
+				"credit": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"uniqueItems": true
+				},
+				"status": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/MD_ProgressCode"
+					},
+					"uniqueItems": true
+				},
+				"pointOfContact": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CI_Responsibility"
+					},
+					"uniqueItems": true
+				},
+				"spatialRepresentationType": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/MD_SpatialRepresentationTypeCode"
+					},
+					"uniqueItems": true
+				},
+				"temporalResolution": {
+					"type": "array",
+					"items": {
+						"type": "string",
+						"format": "duration"
+					},
+					"uniqueItems": true
+				},
+				"topicCategory": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/MD_TopicCategoryCode"
+					},
+					"uniqueItems": true
+				},
+				"extent": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/EX_Extent"
+					},
+					"uniqueItems": true
+				},
+				"additionalDocumentation": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CI_Citation"
+					},
+					"uniqueItems": true
+				},
+				"processingLevel": {
+					"$ref": "#/definitions/MD_Identifier"
+				},
+				"descriptiveKeywords": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/MD_Keywords"
+					},
+					"uniqueItems": true
+				},
+				"defaultLocale": {
+					"$ref": "#/definitions/PT_Locale"
+				},
+				"otherLocale": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/PT_Locale"
+					},
+					"uniqueItems": true
+				},
+				"environmentDescription": {
+					"type": "string"
+				},
+				"supplementalInformation": {
+					"type": "string"
+				},
+				"resourceFormat": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/MD_Format"
+					},
+					"uniqueItems": true
+				},
+				"resourceMaintenance": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/MD_MaintenanceInformation"
+					},
+					"uniqueItems": true
+				},
+				"resourceConstraints": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Abstract_ConstraintUnion"
+					},
+					"uniqueItems": true
+				}
+			},
+			"required": [
+				"abstract",
+				"citation"
+			]
+		},
+		"MD_DatatypeCode": {
+			"$comment": "MD_DatatypeCode",
+			"type": "string"
+		},
+		"MD_DigitalTransferOptions": {
+			"$comment": "MD_DigitalTransferOptions",
+			"type": "object",
+			"properties": {
+				"unitsOfDistribution": {
+					"type": "string"
+				},
+				"transferSize": {
+					"type": "number"
+				},
+				"onLine": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CI_OnlineResource"
+					},
+					"uniqueItems": true
+				},
+				"offLine": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/MD_Medium"
+					},
+					"uniqueItems": true
+				},
+				"transferFrequency": {},
+				"distributionFormat": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/MD_Format"
+					},
+					"uniqueItems": true
+				}
+			}
+		},
+		"MD_DimensionNameTypeCode": {
+			"$comment": "MD_DimensionNameTypeCode",
+			"type": "string"
+		},
+		"MD_Distribution": {
+			"$comment": "MD_Distribution",
+			"type": "object",
+			"properties": {
+				"distributor": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/MD_Distributor"
+					},
+					"uniqueItems": true
+				},
+				"transferOptions": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/MD_DigitalTransferOptions"
+					},
+					"uniqueItems": true
+				},
+				"distributionFormat": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/MD_Format"
+					},
+					"uniqueItems": true
+				},
+				"description": {
+					"type": "string"
+				}
+			}
+		},
+		"MD_Distributor": {
+			"$comment": "MD_Distributor",
+			"type": "object",
+			"properties": {
+				"distributionFormat": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/MD_Format"
+					},
+					"uniqueItems": true
+				},
+				"distributorTransferOptions": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/MD_DigitalTransferOptions"
+					},
+					"uniqueItems": true
+				},
+				"distributorContact": {
+					"$ref": "#/definitions/CI_Responsibility"
+				}
+			},
+			"required": [
+				"distributorContact"
+			]
+		},
+		"MD_Format": {
+			"$comment": "MD_Format",
+			"type": "object",
+			"properties": {
+				"formatDistributor": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/MD_Distributor"
+					},
+					"uniqueItems": true
+				},
+				"formatSpecificationCitation": {
+					"$ref": "#/definitions/CI_Citation"
+				},
+				"amendmentNumber": {
+					"type": "string"
+				},
+				"fileDecompressionTechnique": {
+					"type": "string"
+				},
+				"medium": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/MD_Medium"
+					},
+					"uniqueItems": true
+				}
+			},
+			"required": [
+				"formatSpecificationCitation"
+			]
+		},
+		"MD_GeometricObjectTypeCode": {
+			"$comment": "MD_GeometricObjectTypeCode",
+			"type": "string"
+		},
+		"MD_IdentificationUnion": {
+			"$comment": "MD_IdentificationUnion",
+			"$ref": "#/definitions/MD_DataIdentification"
+		},
+		"MD_Identifier": {
+			"$comment": "MD_Identifier",
+			"type": "object",
+			"properties": {
+				"authority": {
+					"$ref": "#/definitions/CI_Citation"
+				},
+				"code": {
+					"type": "string"
+				},
+				"codeSpace": {
+					"type": "string"
+				},
+				"version": {
+					"type": "string"
+				},
+				"description": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"code"
+			]
+		},
+		"MD_ImagingConditionCode": {
+			"$comment": "MD_ImagingConditionCode",
+			"type": "string"
+		},
+		"MD_KeywordTypeCode": {
+			"$comment": "MD_KeywordTypeCode",
+			"type": "string"
+		},
+		"MD_Keywords": {
+			"$comment": "MD_Keywords",
+			"type": "object",
+			"properties": {
+				"keyword": {
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"type": "string"
+					},
+					"uniqueItems": true
+				},
+				"type": {
+					"$ref": "#/definitions/MD_KeywordTypeCode"
+				},
+				"thesaurusName": {
+					"$ref": "#/definitions/CI_Citation"
+				}
+			},
+			"required": [
+				"keyword"
+			]
+		},
+		"MD_LegalConstraints": {
+			"$comment": "MD_LegalConstraints",
+			"type": "object",
+			"properties": {
+				"type": {
+					"const": "MD_LegalConstraints"
+				},
+				"useLimitation": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"uniqueItems": true
+				},
+				"constraintApplicationScope": {
+					"$ref": "#/definitions/MD_Scope"
+				},
+				"reference": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CI_Citation"
+					},
+					"uniqueItems": true
+				},
+				"responsibleParty": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CI_Responsibility"
+					},
+					"uniqueItems": true
+				},
+				"accessConstraints": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/MD_RestrictionCode"
+					},
+					"uniqueItems": true
+				},
+				"useConstraints": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/MD_RestrictionCode"
+					},
+					"uniqueItems": true
+				},
+				"otherConstraints": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"uniqueItems": true
+				}
+			},
+			"required": [
+				"type"
+			]
+		},
+		"MD_MaintenanceFrequencyCode": {
+			"$comment": "MD_MaintenanceFrequencyCode",
+			"type": "string"
+		},
+		"MD_MaintenanceInformation": {
+			"$comment": "MD_MaintenanceInformation",
+			"type": "object",
+			"properties": {
+				"maintenanceAndUpdateFrequency": {
+					"$ref": "#/definitions/MD_MaintenanceFrequencyCode"
+				},
+				"maintenanceDate": {
+					"$ref": "#/definitions/CI_Date"
+				},
+				"userDefinedMaintenanceFrequency": {},
+				"maintenanceScope": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/MD_Scope"
+					},
+					"uniqueItems": true
+				},
+				"maintenanceNote": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"uniqueItems": true
+				},
+				"contact": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CI_Responsibility"
+					},
+					"uniqueItems": true
+				}
+			}
+		},
+		"MD_Medium": {
+			"$comment": "MD_Medium",
+			"type": "object",
+			"properties": {
+				"name": {
+					"$ref": "#/definitions/CI_Citation"
+				},
+				"density": {
+					"type": "integer"
+				},
+				"densityUnits": {
+					"type": "string"
+				},
+				"volumes": {
+					"type": "integer"
+				},
+				"mediumFormat": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/MD_MediumFormatCode"
+					},
+					"uniqueItems": true
+				},
+				"mediumNote": {
+					"type": "string"
+				},
+				"identifier": {
+					"$ref": "#/definitions/MD_Identifier"
+				}
+			}
+		},
+		"MD_MediumFormatCode": {
+			"$comment": "MD_MediumFormatCode",
+			"type": "string"
+		},
+		"MD_Metadata": {
+			"$comment": "MD_Metadata",
+			"type": "object",
+			"properties": {
+				"metadataConstraints": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Abstract_ConstraintUnion"
+					},
+					"uniqueItems": true
+				},
+				"resourceLineage": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/LI_Lineage"
+					},
+					"uniqueItems": true
+				},
+				"distributionInfo": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/MD_Distribution"
+					},
+					"uniqueItems": true
+				},
+				"identificationInfo": {
+					"$ref": "#/definitions/MD_IdentificationUnion"
+				},
+				"metadataMaintenance": {
+					"$ref": "#/definitions/MD_MaintenanceInformation"
+				},
+				"dataQualityInfo": {
+					"type": "array",
+					"items": {
+						"$ref": "dqc.json#definitions/DataQuality"
+					},
+					"uniqueItems": true
+				},
+				"metadataScope": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/MD_MetadataScope"
+					},
+					"uniqueItems": true
+				},
+				"metadataIdentifier": {
+					"$ref": "#/definitions/MD_Identifier"
+				},
+				"defaultLocale": {
+					"$ref": "#/definitions/PT_Locale"
+				},
+				"parentMetadata": {
+					"$ref": "#/definitions/CI_Citation"
+				},
+				"contact": {
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"$ref": "#/definitions/CI_Responsibility"
+					},
+					"uniqueItems": true
+				},
+				"dateInfo": {
+					"$ref": "#/definitions/CI_Date"
+				},
+				"metadataStandard": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CI_Citation"
+					},
+					"uniqueItems": true
+				},
+				"metadataProfile": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CI_Citation"
+					},
+					"uniqueItems": true
+				},
+				"alternativeMetadataReference": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CI_Citation"
+					},
+					"uniqueItems": true
+				},
+				"otherLocale": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/PT_Locale"
+					},
+					"uniqueItems": true
+				},
+				"metadataLinkage": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CI_OnlineResource"
+					},
+					"uniqueItems": true
+				}
+			},
+			"required": [
+				"contact",
+				"dateInfo"
+			]
+		},
+		"MD_MetadataScope": {
+			"$comment": "MD_MetadataScope",
+			"type": "object",
+			"properties": {
+				"resourceScope": {
+					"$ref": "mdj.json#/definitions/MD_ScopeCode"
+				},
+				"name": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"resourceScope"
+			]
+		},
+		"MD_ObligationCode": {
+			"$comment": "MD_ObligationCode",
+			"type": "string",
+			"enum": [
+				"mandatory",
+				"optional",
+				"conditional"
+			]
+		},
+		"MD_ProgressCode": {
+			"$comment": "MD_ProgressCode",
+			"type": "string"
+		},
+		"MD_ReferenceSystem": {
+			"$comment": "MD_ReferenceSystem",
+			"type": "object",
+			"properties": {
+				"referenceSystemIdentifier": {
+					"$ref": "#/definitions/MD_Identifier"
+				},
+				"crs": {
+					"type": "string",
+					"format": "uri"
+				},
+				"coordinateEpoch": {
+					"type": "number"
+				},
+				"referenceSystemType": {
+					"$ref": "#/definitions/MD_ReferenceSystemTypeCode"
+				}
+			}
+		},
+		"MD_ReferenceSystemTypeCode": {
+			"$comment": "MD_ReferenceSystemTypeCode",
+			"type": "string"
+		},
+		"MD_RepresentativeFraction": {
+			"$comment": "MD_RepresentativeFraction",
+			"type": "object",
+			"properties": {
+				"denominator": {
+					"type": "integer"
+				}
+			},
+			"required": [
+				"denominator"
+			]
+		},
+		"MD_RestrictionCode": {
+			"$comment": "MD_RestrictionCode",
+			"type": "string"
+		},
+		"MD_Scope": {
+			"$comment": "MD_Scope",
+			"type": "object",
+			"properties": {
+				"level": {
+					"$ref": "mdj.json#/definitions/MD_ScopeCode"
+				},
+				"extent": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/EX_Extent"
+					},
+					"uniqueItems": true
+				},
+				"levelDescription": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/MD_ScopeDescription"
+					},
+					"uniqueItems": true
+				}
+			},
+			"required": [
+				"level"
+			]
+		},
+		"MD_ScopeCode": {
+			"$comment": "MD_ScopeCode",
+			"type": "string"
+		},
+		"MD_ScopeDescription": {
+			"$comment": "MD_ScopeDescription",
+			"type": "object",
+			"properties": {
+				"attributes": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"uniqueItems": true
+				},
+				"features": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"uniqueItems": true
+				},
+				"featureInstances": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"uniqueItems": true
+				},
+				"attributeInstances": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"uniqueItems": true
+				},
+				"dataset": {
+					"type": "string"
+				},
+				"other": {
+					"type": "string"
+				}
+			},
+			"minProperties": 1,
+			"maxProperties": 1
+		},
+		"MD_SecurityConstraints": {
+			"$comment": "MD_SecurityConstraints",
+			"type": "object",
+			"properties": {
+				"type": {
+					"const": "MD_SecurityConstraints"
+				},
+				"useLimitation": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"uniqueItems": true
+				},
+				"constraintApplicationScope": {
+					"$ref": "#/definitions/MD_Scope"
+				},
+				"reference": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CI_Citation"
+					},
+					"uniqueItems": true
+				},
+				"responsibleParty": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CI_Responsibility"
+					},
+					"uniqueItems": true
+				},
+				"classification": {
+					"$ref": "#/definitions/MD_ClassificationCode"
+				},
+				"userNote": {
+					"type": "string"
+				},
+				"classificationSystem": {
+					"type": "string"
+				},
+				"handlingDescription": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"type",
+				"classification"
+			]
+		},
+		"MD_SpatialRepresentationTypeCode": {
+			"$comment": "MD_SpatialRepresentationTypeCode",
+			"type": "string"
+		},
+		"MD_TopicCategoryCode": {
+			"$comment": "MD_TopicCategoryCode",
+			"type": "string",
+			"enum": [
+				"farming",
+				"biota",
+				"boundaries",
+				"climatologyMeteorologyAtmosphere",
+				"economy",
+				"elevation",
+				"environment",
+				"geoscientificInformation",
+				"health",
+				"imageryBaseMapsEarthCover",
+				"intelligenceMilitary",
+				"inlandWaters",
+				"location",
+				"oceans",
+				"planningCadastre",
+				"society",
+				"structure",
+				"transportation",
+				"utilitiesCommunication",
+				"extraTerrestrial",
+				"disaster"
+			]
+		},
+		"MD_TopologyLevelCode": {
+			"$comment": "MD_TopologyLevelCode",
+			"type": "string"
+		},
+		"MD_Usage": {
+			"$comment": "MD_Usage",
+			"type": "object",
+			"properties": {
+				"specificUsage": {
+					"type": "string"
+				},
+				"usageDateTime": {
+					"type": "array",
+					"items": {
+						"$ref": "#InstantOrInterval"
+					},
+					"uniqueItems": true
+				},
+				"userDeterminedLimitations": {
+					"type": "string"
+				},
+				"userContactInfo": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CI_Responsibility"
+					},
+					"uniqueItems": true
+				},
+				"response": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"uniqueItems": true
+				},
+				"additionalDocumentation": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CI_Citation"
+					},
+					"uniqueItems": true
+				},
+				"identifiedIssues": {
+					"$ref": "#/definitions/CI_Citation"
+				}
+			},
+			"required": [
+				"specificUsage"
+			]
+		},
+		"InstantOrInterval": {
+			"$comment": "InstantOrInterval",
+			"oneOf": [
+				{
+					"$ref": "#/definitions/DateOrDateTime"
+				},
+				{
+					"$ref": "#Interval"
+				}
+			]
+		},
+		"Interval": {
+			"$comment": "Interval",
+			"type": "array",
+			"minItems": 2,
+			"maxItems": 2,
+			"items": {
+				"oneOf": [
+					{
+						"$ref": "#/definitions/DateOrDateTime"
+					},
+					{
+						"const": ".."
+					}
+				]
+			}
+		},
+		"PT_Locale": {
+			"$comment": "PT_Locale",
+			"type": "object",
+			"properties": {
+				"language": {
+					"$ref": "#LanguageCode"
+				},
+				"country": {
+					"$ref": "#CountryCode"
+				},
+				"characterEncoding": {
+					"$ref": "#/definitions/MD_CharacterSetCode"
+				}
+			},
+			"required": [
+				"characterEncoding",
+				"language"
+			]
+		},
+		"SV_CouplingType": {
+			"$comment": "SV_CouplingType",
+			"type": "string"
+		},
+		"SV_ParameterDirection": {
+			"$comment": "SV_ParameterDirection",
+			"type": "string",
+			"enum": [
+				"in",
+				"out",
+				"in/out"
+			]
+		},
+		"TaxonomicClassification": {
+			"$comment": "TaxonomicClassification",
+			"type": "object",
+			"properties": {
+				"commonName": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"uniqueItems": true
+				},
+				"taxonRankName": {
+					"type": "string"
+				},
+				"taxonRankValue": {
+					"type": "string"
+				},
+				"hierarchialClass": {
+					"type": "array",
+					"items": {
+						"$ref": "#TaxonomicClassification"
+					},
+					"uniqueItems": true
+				}
+			},
+			"required": [
+				"taxonRankName",
+				"taxonRankValue"
+			]
+		},
+		"TaxonomySystem": {
+			"$comment": "TaxonomySystem",
+			"type": "object",
+			"properties": {
+				"classificationSystemAuthority": {
+					"$ref": "#/definitions/CI_Citation"
+				},
+				"classificationSystemModifications": {
+					"type": "string"
+				},
+				"generalTaxonomicScope": {
+					"type": "string"
+				},
+				"identificationReference": {
+					"$ref": "#/definitions/CI_Citation"
+				},
+				"observer": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CI_Responsibility"
+					},
+					"uniqueItems": true
+				},
+				"identificationTaxonomicProcedures": {
+					"type": "string"
+				},
+				"identificationTaxonomicCompleteness": {
+					"type": "string"
+				},
+				"theVouchers": {
+					"type": "array",
+					"items": {
+						"$ref": "#Vouchers"
+					},
+					"uniqueItems": true
+				},
+				"theTaxonomicClassification": {
+					"$ref": "#TaxonomicClassification"
+				}
+			},
+			"required": [
+				"classificationSystemAuthority",
+				"identificationReference",
+				"identificationTaxonomicProcedures",
+				"theTaxonomicClassification"
+			]
+		},
+		"Vouchers": {
+			"$comment": "Vouchers",
+			"type": "object",
+			"properties": {
+				"specimen": {
+					"type": "string"
+				},
+				"repository": {
+					"$ref": "#/definitions/CI_Responsibility"
+				}
+			},
+			"required": [
+				"repository",
+				"specimen"
+			]
+		}
+	}
+}

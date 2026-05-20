@@ -1,0 +1,1416 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "dqc.json",
+  "definitions": {
+    "AbsolutePositionalAccuracy": {
+      "$comment": "AbsolutePositionalAccuracy",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "AbsolutePositionalAccuracy"
+        },
+        "measure": {
+          "$ref": "#/definitions/MeasureReference"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityResultUnion"
+          },
+          "uniqueItems": true
+        },
+        "derivedElement": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityElementUnion"
+          },
+          "uniqueItems": true
+        },
+        "evaluationMethod": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EvaluationMethodUnion"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "type",
+        "measure"
+      ]
+    },
+    "AccuracyOfATimeMeasurement": {
+      "$comment": "AccuracyOfATimeMeasurement",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "AccuracyOfATimeMeasurement"
+        },
+        "measure": {
+          "$ref": "#/definitions/MeasureReference"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityResultUnion"
+          },
+          "uniqueItems": true
+        },
+        "derivedElement": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityElementUnion"
+          },
+          "uniqueItems": true
+        },
+        "evaluationMethod": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EvaluationMethodUnion"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "type",
+        "measure"
+      ]
+    },
+    "AggregationDerivation": {
+      "$comment": "AggregationDerivation",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "AggregationDerivation"
+        },
+        "name": {
+          "type": "string"
+        },
+        "evaluationMethodDescription": {
+          "type": "string"
+        },
+        "evaluationMethodType": {
+          "$ref": "#/definitions/EvaluationMethodTypeCode"
+        },
+        "evaluationProcedure": {
+          "$ref": "mdj.json#/definitions/CI_Citation"
+        },
+        "dateTime": {
+          "type": "array",
+          "items": {
+            "$ref": "mdj.json#/definitions/DateOrDateTime"
+          },
+          "uniqueItems": true
+        },
+        "referenceDoc": {
+          "type": "array",
+          "items": {
+            "$ref": "mdj.json#/definitions/CI_Citation"
+          },
+          "uniqueItems": true
+        },
+        "deductiveSource": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
+    "BasicMeasure": {
+      "$comment": "BasicMeasure",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "definition": {
+          "type": "string"
+        },
+        "example": {
+          "$ref": "#/definitions/MeasureDescription"
+        },
+        "valueType": {"type":"string"}
+      },
+      "required": [
+        "definition",
+        "name",
+        "valueType"
+      ]
+    },
+    "Commission": {
+      "$comment": "Commission",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Commission"
+        },
+        "measure": {
+          "$ref": "#/definitions/MeasureReference"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityResultUnion"
+          },
+          "uniqueItems": true
+        },
+        "derivedElement": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityElementUnion"
+          },
+          "uniqueItems": true
+        },
+        "evaluationMethod": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EvaluationMethodUnion"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "type",
+        "measure"
+      ]
+    },
+    "CompletenessUnion": {
+      "$comment": "CompletenessUnion",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/Commission"
+        },
+        {
+          "$ref": "#/definitions/Omission"
+        }
+      ]
+    },
+    "ConceptualConsistency": {
+      "$comment": "ConceptualConsistency",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "ConceptualConsistency"
+        },
+        "measure": {
+          "$ref": "#/definitions/MeasureReference"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityResultUnion"
+          },
+          "uniqueItems": true
+        },
+        "derivedElement": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityElementUnion"
+          },
+          "uniqueItems": true
+        },
+        "evaluationMethod": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EvaluationMethodUnion"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "type",
+        "measure"
+      ]
+    },
+    "Confidence": {
+      "$comment": "Confidence",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Confidence"
+        },
+        "measure": {
+          "$ref": "#/definitions/MeasureReference"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityResultUnion"
+          },
+          "uniqueItems": true
+        },
+        "derivedElement": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityElementUnion"
+          },
+          "uniqueItems": true
+        },
+        "evaluationMethod": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EvaluationMethodUnion"
+          },
+          "uniqueItems": true
+        },
+        "relatedQualityElement": {
+          "$ref": "#/definitions/QualityElementUnion"
+        }
+      },
+      "required": [
+        "type",
+        "measure"
+      ]
+    },
+    "ConformanceResult": {
+      "$comment": "ConformanceResult",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "ConformanceResult"
+        },
+        "dateTime": {
+          "$ref": "mdj.json#/definitions/DateOrDateTime"
+        },
+        "resultScope": {
+          "$ref": "mdj.json#/definitions/MD_Scope"
+        },
+        "pass": {
+          "type": "boolean"
+        },
+        "specification": {
+          "$ref": "mdj.json#/definitions/CI_Citation"
+        },
+        "explanation": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "pass",
+        "specification"
+      ]
+    },
+    "CoverageResult": {
+      "$comment": "CoverageResult",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "CoverageResult"
+        },
+        "dateTime": {
+          "$ref": "mdj.json#/definitions/DateOrDateTime"
+        },
+        "resultScope": {
+          "$ref": "mdj.json#/definitions/MD_Scope"
+        },
+        "spatialRepresentationType": {
+          "$ref": "mdj.json#/definitions/MD_SpatialRepresentationTypeCode"
+        }
+      },
+      "required": [
+        "type",
+        "spatialRepresentationType"
+      ]
+    },
+    "DataEvaluationUnion": {
+      "$comment": "DataEvaluationUnion",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/FullInspection"
+        },
+        {
+          "$ref": "#/definitions/IndirectEvaluation"
+        },
+        {
+          "$ref": "#/definitions/SampleBasedInspection"
+        }
+      ]
+    },
+    "DataQuality": {
+      "$comment": "DataQuality",
+      "type": "object",
+      "properties": {
+        "scope": {
+          "$ref": "mdj.json#/definitions/MD_Scope"
+        },
+        "report": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityElementUnion"
+          },
+          "uniqueItems": true
+        },
+        "qualityEvaluationReport": {
+          "$ref": "#/definitions/QualityEvaluationReportInformation"
+        }
+      },
+      "required": [
+        "scope"
+      ]
+    },
+    "DescriptiveResult": {
+      "$comment": "DescriptiveResult",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "DescriptiveResult"
+        },
+        "dateTime": {
+          "$ref": "mdj.json#/definitions/DateOrDateTime"
+        },
+        "resultScope": {
+          "$ref": "mdj.json#/definitions/MD_Scope"
+        },
+        "statement": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "statement"
+      ]
+    },
+    "DomainConsistency": {
+      "$comment": "DomainConsistency",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "DomainConsistency"
+        },
+        "measure": {
+          "$ref": "#/definitions/MeasureReference"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityResultUnion"
+          },
+          "uniqueItems": true
+        },
+        "derivedElement": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityElementUnion"
+          },
+          "uniqueItems": true
+        },
+        "evaluationMethod": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EvaluationMethodUnion"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "type",
+        "measure"
+      ]
+    },
+    "EvaluationMethodTypeCode": {
+      "$comment": "EvaluationMethodTypeCode",
+      "type": "string"
+    },
+    "EvaluationMethodUnion": {
+      "$comment": "EvaluationMethodUnion",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/AggregationDerivation"
+        },
+        {
+          "$ref": "#/definitions/FullInspection"
+        },
+        {
+          "$ref": "#/definitions/IndirectEvaluation"
+        },
+        {
+          "$ref": "#/definitions/SampleBasedInspection"
+        }
+      ]
+    },
+    "FormatConsistency": {
+      "$comment": "FormatConsistency",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "FormatConsistency"
+        },
+        "measure": {
+          "$ref": "#/definitions/MeasureReference"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityResultUnion"
+          },
+          "uniqueItems": true
+        },
+        "derivedElement": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityElementUnion"
+          },
+          "uniqueItems": true
+        },
+        "evaluationMethod": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EvaluationMethodUnion"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "type",
+        "measure"
+      ]
+    },
+    "FormulaLanguage": {
+      "$comment": "FormulaLanguage",
+      "type": "string"
+    },
+    "FormulaType": {
+      "$comment": "FormulaType",
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "language": {
+          "$ref": "#/definitions/FormulaLanguage"
+        },
+        "languageVersion": {
+          "type": "string"
+        },
+        "mathematicalFormula": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "key",
+        "language",
+        "languageVersion",
+        "mathematicalFormula"
+      ]
+    },
+    "FullInspection": {
+      "$comment": "FullInspection",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "FullInspection"
+        },
+        "name": {
+          "type": "string"
+        },
+        "evaluationMethodDescription": {
+          "type": "string"
+        },
+        "evaluationMethodType": {
+          "$ref": "#/definitions/EvaluationMethodTypeCode"
+        },
+        "evaluationProcedure": {
+          "$ref": "mdj.json#/definitions/CI_Citation"
+        },
+        "dateTime": {
+          "type": "array",
+          "items": {
+            "$ref": "mdj.json#/definitions/DateOrDateTime"
+          },
+          "uniqueItems": true
+        },
+        "referenceDoc": {
+          "type": "array",
+          "items": {
+            "$ref": "mdj.json#/definitions/CI_Citation"
+          },
+          "uniqueItems": true
+        },
+        "deductiveSource": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
+    "GriddedDataPositionalAccuracy": {
+      "$comment": "GriddedDataPositionalAccuracy",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "GriddedDataPositionalAccuracy"
+        },
+        "measure": {
+          "$ref": "#/definitions/MeasureReference"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityResultUnion"
+          },
+          "uniqueItems": true
+        },
+        "derivedElement": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityElementUnion"
+          },
+          "uniqueItems": true
+        },
+        "evaluationMethod": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EvaluationMethodUnion"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "type",
+        "measure"
+      ]
+    },
+    "Homogeneity": {
+      "$comment": "Homogeneity",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Homogeneity"
+        },
+        "measure": {
+          "$ref": "#/definitions/MeasureReference"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityResultUnion"
+          },
+          "uniqueItems": true
+        },
+        "derivedElement": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityElementUnion"
+          },
+          "uniqueItems": true
+        },
+        "evaluationMethod": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EvaluationMethodUnion"
+          },
+          "uniqueItems": true
+        },
+        "relatedQualityElement": {
+          "$ref": "#/definitions/QualityElementUnion"
+        }
+      },
+      "required": [
+        "type",
+        "measure"
+      ]
+    },
+    "IndirectEvaluation": {
+      "$comment": "IndirectEvaluation",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "IndirectEvaluation"
+        },
+        "name": {
+          "type": "string"
+        },
+        "evaluationMethodDescription": {
+          "type": "string"
+        },
+        "evaluationMethodType": {
+          "$ref": "#/definitions/EvaluationMethodTypeCode"
+        },
+        "evaluationProcedure": {
+          "$ref": "mdj.json#/definitions/CI_Citation"
+        },
+        "dateTime": {
+          "type": "array",
+          "items": {
+            "$ref": "mdj.json#/definitions/DateOrDateTime"
+          },
+          "uniqueItems": true
+        },
+        "referenceDoc": {
+          "type": "array",
+          "items": {
+            "$ref": "mdj.json#/definitions/CI_Citation"
+          },
+          "uniqueItems": true
+        },
+        "deductiveSource": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
+    "LogicalConsistencyUnion": {
+      "$comment": "LogicalConsistencyUnion",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/ConceptualConsistency"
+        },
+        {
+          "$ref": "#/definitions/DomainConsistency"
+        },
+        {
+          "$ref": "#/definitions/FormatConsistency"
+        },
+        {
+          "$ref": "#/definitions/TopologicalConsistency"
+        }
+      ]
+    },
+    "MeasureDescription": {
+      "$comment": "MeasureDescription",
+      "type": "object",
+      "properties": {
+        "textDescription": {
+          "type": "string"
+        },
+        "formula": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FormulaType"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "textDescription"
+      ]
+    },
+    "MeasureParameter": {
+      "$comment": "MeasureParameter",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "definition": {
+          "type": "string"
+        },
+        "description": {
+          "$ref": "#/definitions/MeasureDescription"
+        },
+        "valueType": {"type":"string"},
+        "valueStructure": {
+          "$ref": "#/definitions/ValueStructure"
+        }
+      },
+      "required": [
+        "definition",
+        "name",
+        "valueType"
+      ]
+    },
+    "MeasureReference": {
+      "$comment": "MeasureReference",
+      "type": "object",
+      "properties": {
+        "measureIdentification": {
+          "$ref": "mdj.json#/definitions/MD_Identifier"
+        },
+        "nameOfMeasure": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "measureDescription": {
+          "type": "string"
+        }
+      }
+    },
+    "Metaquality": {
+      "$comment": "Metaquality",
+      "type": "object",
+      "$comment": "TODO add properties",
+      "properties": {
+        "type": {
+          "const": "Metaquality"
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
+    "MetaqualityUnion": {
+      "$comment": "MetaqualityUnion",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/Confidence"
+        },
+        {
+          "$ref": "#/definitions/Homogeneity"
+        },
+        {
+          "$ref": "#/definitions/Representativity"
+        }
+      ]
+    },
+    "NonQuantitativeAttributeCorrectness": {
+      "$comment": "NonQuantitativeAttributeCorrectness",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "NonQuantitativeAttributeCorrectness"
+        },
+        "measure": {
+          "$ref": "#/definitions/MeasureReference"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityResultUnion"
+          },
+          "uniqueItems": true
+        },
+        "derivedElement": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityElementUnion"
+          },
+          "uniqueItems": true
+        },
+        "evaluationMethod": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EvaluationMethodUnion"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "type",
+        "measure"
+      ]
+    },
+    "Omission": {
+      "$comment": "Omission",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Omission"
+        },
+        "measure": {
+          "$ref": "#/definitions/MeasureReference"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityResultUnion"
+          },
+          "uniqueItems": true
+        },
+        "derivedElement": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityElementUnion"
+          },
+          "uniqueItems": true
+        },
+        "evaluationMethod": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EvaluationMethodUnion"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "type",
+        "measure"
+      ]
+    },
+    "PositionalAccuracyUnion": {
+      "$comment": "PositionalAccuracyUnion",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/AbsolutePositionalAccuracy"
+        },
+        {
+          "$ref": "#/definitions/GriddedDataPositionalAccuracy"
+        },
+        {
+          "$ref": "#/definitions/RelativePositionalAccuracy"
+        }
+      ]
+    },
+    "QualityElementUnion": {
+      "$comment": "QualityElementUnion",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/AbsolutePositionalAccuracy"
+        },
+        {
+          "$ref": "#/definitions/AccuracyOfATimeMeasurement"
+        },
+        {
+          "$ref": "#/definitions/Commission"
+        },
+        {
+          "$ref": "#/definitions/ConceptualConsistency"
+        },
+        {
+          "$ref": "#/definitions/Confidence"
+        },
+        {
+          "$ref": "#/definitions/DomainConsistency"
+        },
+        {
+          "$ref": "#/definitions/FormatConsistency"
+        },
+        {
+          "$ref": "#/definitions/GriddedDataPositionalAccuracy"
+        },
+        {
+          "$ref": "#/definitions/Homogeneity"
+        },
+        {
+          "$ref": "#/definitions/NonQuantitativeAttributeCorrectness"
+        },
+        {
+          "$ref": "#/definitions/Omission"
+        },
+        {
+          "$ref": "#/definitions/QuantitativeAttributeAccuracy"
+        },
+        {
+          "$ref": "#/definitions/RelativePositionalAccuracy"
+        },
+        {
+          "$ref": "#/definitions/Representativity"
+        },
+        {
+          "$ref": "#/definitions/TemporalConsistency"
+        },
+        {
+          "$ref": "#/definitions/TemporalValidity"
+        },
+        {
+          "$ref": "#/definitions/ThematicClassificationCorrectness"
+        },
+        {
+          "$ref": "#/definitions/TopologicalConsistency"
+        }
+      ]
+    },
+    "QualityEvaluationReportInformation": {
+      "$comment": "QualityEvaluationReportInformation",
+      "type": "object",
+      "properties": {
+        "reportReference": {
+          "$ref": "mdj.json#/definitions/CI_Citation"
+        },
+        "abstract": {
+          "type": "string"
+        },
+        "qualityEvaluationReportDetails": {
+          "type": "string"
+        },
+        "elementReport": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityElementUnion"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "abstract",
+        "reportReference"
+      ]
+    },
+    "QualityMeasure": {
+      "$comment": "QualityMeasure",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "QualityMeasure"
+        },
+        "measureIdentifier": {
+          "$ref": "mdj.json#/definitions/MD_Identifier"
+        },
+        "name": {
+          "type": "string"
+        },
+        "alias": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "elementName": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type":"string"}
+        },
+        "definition": {
+          "type": "string"
+        },
+        "description": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/MeasureDescription"
+          },
+          "uniqueItems": true
+        },
+        "valueType": {},
+        "valueStructure": {
+          "$ref": "#/definitions/ValueStructure"
+        },
+        "example": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MeasureDescription"
+          },
+          "uniqueItems": true
+        },
+        "basicMeasure": {
+          "$ref": "#/definitions/BasicMeasure"
+        },
+        "sourceReference": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SourceReference"
+          },
+          "uniqueItems": true
+        },
+        "parameter": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MeasureParameter"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "type",
+        "definition",
+        "description",
+        "elementName",
+        "measureIdentifier",
+        "name",
+        "valueType"
+      ]
+    },
+    "QualityResultUnion": {
+      "$comment": "QualityResultUnion",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/ConformanceResult"
+        },
+        {
+          "$ref": "#/definitions/CoverageResult"
+        },
+        {
+          "$ref": "#/definitions/DescriptiveResult"
+        },
+        {
+          "$ref": "#/definitions/QuantitativeResult"
+        }
+      ]
+    },
+    "QuantitativeAttributeAccuracy": {
+      "$comment": "QuantitativeAttributeAccuracy",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "QuantitativeAttributeAccuracy"
+        },
+        "measure": {
+          "$ref": "#/definitions/MeasureReference"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityResultUnion"
+          },
+          "uniqueItems": true
+        },
+        "derivedElement": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityElementUnion"
+          },
+          "uniqueItems": true
+        },
+        "evaluationMethod": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EvaluationMethodUnion"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "type",
+        "measure"
+      ]
+    },
+    "QuantitativeResult": {
+      "$comment": "QuantitativeResult",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "QuantitativeResult"
+        },
+        "dateTime": {
+          "$ref": "mdj.json#/definitions/DateOrDateTime"
+        },
+        "resultScope": {
+          "$ref": "mdj.json#/definitions/MD_Scope"
+        },
+        "value": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {}
+        },
+        "valueUnit": {"type": "string"},
+        "valueRecordType": {"$ref": "http://json-schema.org/draft-04/schema"}
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "RelativePositionalAccuracy": {
+      "$comment": "RelativePositionalAccuracy",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "RelativePositionalAccuracy"
+        },
+        "measure": {
+          "$ref": "#/definitions/MeasureReference"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityResultUnion"
+          },
+          "uniqueItems": true
+        },
+        "derivedElement": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityElementUnion"
+          },
+          "uniqueItems": true
+        },
+        "evaluationMethod": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EvaluationMethodUnion"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "type",
+        "measure"
+      ]
+    },
+    "Representativity": {
+      "$comment": "Representativity",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Representativity"
+        },
+        "measure": {
+          "$ref": "#/definitions/MeasureReference"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityResultUnion"
+          },
+          "uniqueItems": true
+        },
+        "derivedElement": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityElementUnion"
+          },
+          "uniqueItems": true
+        },
+        "evaluationMethod": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EvaluationMethodUnion"
+          },
+          "uniqueItems": true
+        },
+        "relatedQualityElement": {
+          "$ref": "#/definitions/QualityElementUnion"
+        }
+      },
+      "required": [
+        "type",
+        "measure"
+      ]
+    },
+    "SampleBasedInspection": {
+      "$comment": "SampleBasedInspection",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "SampleBasedInspection"
+        },
+        "name": {
+          "type": "string"
+        },
+        "evaluationMethodDescription": {
+          "type": "string"
+        },
+        "evaluationMethodType": {
+          "$ref": "#/definitions/EvaluationMethodTypeCode"
+        },
+        "evaluationProcedure": {
+          "$ref": "mdj.json#/definitions/CI_Citation"
+        },
+        "dateTime": {
+          "type": "array",
+          "items": {
+            "$ref": "mdj.json#/definitions/DateOrDateTime"
+          },
+          "uniqueItems": true
+        },
+        "referenceDoc": {
+          "type": "array",
+          "items": {
+            "$ref": "mdj.json#/definitions/CI_Citation"
+          },
+          "uniqueItems": true
+        },
+        "deductiveSource": {
+          "type": "string"
+        },
+        "samplingScheme": {
+          "type": "string"
+        },
+        "lotDescription": {
+          "type": "string"
+        },
+        "samplingRatio": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "lotDescription",
+        "samplingRatio",
+        "samplingScheme"
+      ]
+    },
+    "SourceReference": {
+      "$comment": "SourceReference",
+      "type": "object",
+      "properties": {
+        "citation": {
+          "$ref": "mdj.json#/definitions/CI_Citation"
+        }
+      },
+      "required": [
+        "citation"
+      ]
+    },
+    "TemporalConsistency": {
+      "$comment": "TemporalConsistency",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "TemporalConsistency"
+        },
+        "measure": {
+          "$ref": "#/definitions/MeasureReference"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityResultUnion"
+          },
+          "uniqueItems": true
+        },
+        "derivedElement": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityElementUnion"
+          },
+          "uniqueItems": true
+        },
+        "evaluationMethod": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EvaluationMethodUnion"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "type",
+        "measure"
+      ]
+    },
+    "TemporalQualityUnion": {
+      "$comment": "TemporalQualityUnion",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/AccuracyOfATimeMeasurement"
+        },
+        {
+          "$ref": "#/definitions/TemporalConsistency"
+        },
+        {
+          "$ref": "#/definitions/TemporalValidity"
+        }
+      ]
+    },
+    "TemporalValidity": {
+      "$comment": "TemporalValidity",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "TemporalValidity"
+        },
+        "measure": {
+          "$ref": "#/definitions/MeasureReference"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityResultUnion"
+          },
+          "uniqueItems": true
+        },
+        "derivedElement": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityElementUnion"
+          },
+          "uniqueItems": true
+        },
+        "evaluationMethod": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EvaluationMethodUnion"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "type",
+        "measure"
+      ]
+    },
+    "ThematicClassificationCorrectness": {
+      "$comment": "ThematicClassificationCorrectness",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "ThematicClassificationCorrectness"
+        },
+        "measure": {
+          "$ref": "#/definitions/MeasureReference"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityResultUnion"
+          },
+          "uniqueItems": true
+        },
+        "derivedElement": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityElementUnion"
+          },
+          "uniqueItems": true
+        },
+        "evaluationMethod": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EvaluationMethodUnion"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "type",
+        "measure"
+      ]
+    },
+    "ThematicQualityUnion": {
+      "$comment": "ThematicQualityUnion",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/NonQuantitativeAttributeCorrectness"
+        },
+        {
+          "$ref": "#/definitions/QuantitativeAttributeAccuracy"
+        },
+        {
+          "$ref": "#/definitions/ThematicClassificationCorrectness"
+        }
+      ]
+    },
+    "TopologicalConsistency": {
+      "$comment": "TopologicalConsistency",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "TopologicalConsistency"
+        },
+        "measure": {
+          "$ref": "#/definitions/MeasureReference"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityResultUnion"
+          },
+          "uniqueItems": true
+        },
+        "derivedElement": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityElementUnion"
+          },
+          "uniqueItems": true
+        },
+        "evaluationMethod": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EvaluationMethodUnion"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "type",
+        "measure"
+      ]
+    },
+    "ValueStructure": {
+      "$comment": "ValueStructure",
+      "type": "string"
+    }
+  }
+}
