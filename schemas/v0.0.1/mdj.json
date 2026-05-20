@@ -1,6 +1,6 @@
 {
 	"$schema": "http://json-schema.org/draft-04/schema#",
-	"$id": "mdj.json",
+	"$id": "https://eovoc.github.io/eo-books/schemas/v0.0.1/mdj.json",
 	"definitions": {
 		"Abstract_ConstraintUnion": {
 			"$comment": "Abstract_ConstraintUnion",
@@ -1257,7 +1257,7 @@
 				"dataQualityInfo": {
 					"type": "array",
 					"items": {
-						"$ref": "dqc.json#definitions/DataQuality"
+						"$ref": "https://eovoc.github.io/eo-books/schemas/v0.0.1/dqc.json#definitions/DataQuality"
 					},
 					"uniqueItems": true
 				},
@@ -1334,7 +1334,7 @@
 			"type": "object",
 			"properties": {
 				"resourceScope": {
-					"$ref": "mdj.json#/definitions/MD_ScopeCode"
+					"$ref": "https://eovoc.github.io/eo-books/schemas/v0.0.1/mdj.json#/definitions/MD_ScopeCode"
 				},
 				"name": {
 					"type": "string"
@@ -1401,7 +1401,7 @@
 			"type": "object",
 			"properties": {
 				"level": {
-					"$ref": "mdj.json#/definitions/MD_ScopeCode"
+					"$ref": "https://eovoc.github.io/eo-books/schemas/v0.0.1/mdj.json#/definitions/MD_ScopeCode"
 				},
 				"extent": {
 					"type": "array",
