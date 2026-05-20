@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "$id": "dqc.json",
+  "$id": "https://eovoc.github.io/eo-books/schemas/v0.0.1/dqc.json",
   "definitions": {
     "AbsolutePositionalAccuracy": {
       "$comment": "AbsolutePositionalAccuracy",
