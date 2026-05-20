@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://eovoc.github.io/eo-books/schemas/v0.0.1/dqc.json",
   "definitions": {
     "AbsolutePositionalAccuracy": {
@@ -1083,7 +1083,7 @@
           "items": {}
         },
         "valueUnit": {"type": "string"},
-        "valueRecordType": {"$ref": "http://json-schema.org/draft-04/schema"}
+        "valueRecordType": {"$ref": "http://json-schema.org/draft-07/schema"}
       },
       "required": [
         "type",
