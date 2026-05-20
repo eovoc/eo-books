@@ -1,6 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "$id": "https://eovoc.github.io/eo-books/schemas/v0.0.1/dqc.json",
+  "$id": "https://eovoc.github.io/eo-books/schemas/v0.0.1/dqc.json",
   "definitions": {
     "AbsolutePositionalAccuracy": {
       "$comment": "AbsolutePositionalAccuracy",
@@ -93,19 +94,19 @@
           "$ref": "#/definitions/EvaluationMethodTypeCode"
         },
         "evaluationProcedure": {
-          "$ref": "mdj.json#/definitions/CI_Citation"
+          "$ref": "https://eovoc.github.io/eo-books/schemas/v0.0.1/mdj.json#/definitions/CI_Citation"
         },
         "dateTime": {
           "type": "array",
           "items": {
-            "$ref": "mdj.json#/definitions/DateOrDateTime"
+            "$ref": "https://eovoc.github.io/eo-books/schemas/v0.0.1/mdj.json#/definitions/DateOrDateTime"
           },
           "uniqueItems": true
         },
         "referenceDoc": {
           "type": "array",
           "items": {
-            "$ref": "mdj.json#/definitions/CI_Citation"
+            "$ref": "https://eovoc.github.io/eo-books/schemas/v0.0.1/mdj.json#/definitions/CI_Citation"
           },
           "uniqueItems": true
         },
@@ -271,16 +272,16 @@
           "const": "ConformanceResult"
         },
         "dateTime": {
-          "$ref": "mdj.json#/definitions/DateOrDateTime"
+          "$ref": "https://eovoc.github.io/eo-books/schemas/v0.0.1/mdj.json#/definitions/DateOrDateTime"
         },
         "resultScope": {
-          "$ref": "mdj.json#/definitions/MD_Scope"
+          "$ref": "https://eovoc.github.io/eo-books/schemas/v0.0.1/mdj.json#/definitions/MD_Scope"
         },
         "pass": {
           "type": "boolean"
         },
         "specification": {
-          "$ref": "mdj.json#/definitions/CI_Citation"
+          "$ref": "https://eovoc.github.io/eo-books/schemas/v0.0.1/mdj.json#/definitions/CI_Citation"
         },
         "explanation": {
           "type": "string"
@@ -300,13 +301,13 @@
           "const": "CoverageResult"
         },
         "dateTime": {
-          "$ref": "mdj.json#/definitions/DateOrDateTime"
+          "$ref": "https://eovoc.github.io/eo-books/schemas/v0.0.1/mdj.json#/definitions/DateOrDateTime"
         },
         "resultScope": {
-          "$ref": "mdj.json#/definitions/MD_Scope"
+          "$ref": "https://eovoc.github.io/eo-books/schemas/v0.0.1/mdj.json#/definitions/MD_Scope"
         },
         "spatialRepresentationType": {
-          "$ref": "mdj.json#/definitions/MD_SpatialRepresentationTypeCode"
+          "$ref": "https://eovoc.github.io/eo-books/schemas/v0.0.1/mdj.json#/definitions/MD_SpatialRepresentationTypeCode"
         }
       },
       "required": [
@@ -333,7 +334,7 @@
       "type": "object",
       "properties": {
         "scope": {
-          "$ref": "mdj.json#/definitions/MD_Scope"
+          "$ref": "https://eovoc.github.io/eo-books/schemas/v0.0.1/mdj.json#/definitions/MD_Scope"
         },
         "report": {
           "type": "array",
@@ -358,10 +359,10 @@
           "const": "DescriptiveResult"
         },
         "dateTime": {
-          "$ref": "mdj.json#/definitions/DateOrDateTime"
+          "$ref": "https://eovoc.github.io/eo-books/schemas/v0.0.1/mdj.json#/definitions/DateOrDateTime"
         },
         "resultScope": {
-          "$ref": "mdj.json#/definitions/MD_Scope"
+          "$ref": "https://eovoc.github.io/eo-books/schemas/v0.0.1/mdj.json#/definitions/MD_Scope"
         },
         "statement": {
           "type": "string"
@@ -512,19 +513,19 @@
           "$ref": "#/definitions/EvaluationMethodTypeCode"
         },
         "evaluationProcedure": {
-          "$ref": "mdj.json#/definitions/CI_Citation"
+          "$ref": "https://eovoc.github.io/eo-books/schemas/v0.0.1/mdj.json#/definitions/CI_Citation"
         },
         "dateTime": {
           "type": "array",
           "items": {
-            "$ref": "mdj.json#/definitions/DateOrDateTime"
+            "$ref": "https://eovoc.github.io/eo-books/schemas/v0.0.1/mdj.json#/definitions/DateOrDateTime"
           },
           "uniqueItems": true
         },
         "referenceDoc": {
           "type": "array",
           "items": {
-            "$ref": "mdj.json#/definitions/CI_Citation"
+            "$ref": "https://eovoc.github.io/eo-books/schemas/v0.0.1/mdj.json#/definitions/CI_Citation"
           },
           "uniqueItems": true
         },
@@ -630,19 +631,19 @@
           "$ref": "#/definitions/EvaluationMethodTypeCode"
         },
         "evaluationProcedure": {
-          "$ref": "mdj.json#/definitions/CI_Citation"
+          "$ref": "https://eovoc.github.io/eo-books/schemas/v0.0.1/mdj.json#/definitions/CI_Citation"
         },
         "dateTime": {
           "type": "array",
           "items": {
-            "$ref": "mdj.json#/definitions/DateOrDateTime"
+            "$ref": "https://eovoc.github.io/eo-books/schemas/v0.0.1/mdj.json#/definitions/DateOrDateTime"
           },
           "uniqueItems": true
         },
         "referenceDoc": {
           "type": "array",
           "items": {
-            "$ref": "mdj.json#/definitions/CI_Citation"
+            "$ref": "https://eovoc.github.io/eo-books/schemas/v0.0.1/mdj.json#/definitions/CI_Citation"
           },
           "uniqueItems": true
         },
@@ -719,7 +720,7 @@
       "type": "object",
       "properties": {
         "measureIdentification": {
-          "$ref": "mdj.json#/definitions/MD_Identifier"
+          "$ref": "https://eovoc.github.io/eo-books/schemas/v0.0.1/mdj.json#/definitions/MD_Identifier"
         },
         "nameOfMeasure": {
           "type": "array",
@@ -912,7 +913,7 @@
       "type": "object",
       "properties": {
         "reportReference": {
-          "$ref": "mdj.json#/definitions/CI_Citation"
+          "$ref": "https://eovoc.github.io/eo-books/schemas/v0.0.1/mdj.json#/definitions/CI_Citation"
         },
         "abstract": {
           "type": "string"
@@ -941,7 +942,7 @@
           "const": "QualityMeasure"
         },
         "measureIdentifier": {
-          "$ref": "mdj.json#/definitions/MD_Identifier"
+          "$ref": "https://eovoc.github.io/eo-books/schemas/v0.0.1/mdj.json#/definitions/MD_Identifier"
         },
         "name": {
           "type": "string"
@@ -1071,10 +1072,10 @@
           "const": "QuantitativeResult"
         },
         "dateTime": {
-          "$ref": "mdj.json#/definitions/DateOrDateTime"
+          "$ref": "https://eovoc.github.io/eo-books/schemas/v0.0.1/mdj.json#/definitions/DateOrDateTime"
         },
         "resultScope": {
-          "$ref": "mdj.json#/definitions/MD_Scope"
+          "$ref": "https://eovoc.github.io/eo-books/schemas/v0.0.1/mdj.json#/definitions/MD_Scope"
         },
         "value": {
           "type": "array",
@@ -1184,19 +1185,19 @@
           "$ref": "#/definitions/EvaluationMethodTypeCode"
         },
         "evaluationProcedure": {
-          "$ref": "mdj.json#/definitions/CI_Citation"
+          "$ref": "https://eovoc.github.io/eo-books/schemas/v0.0.1/mdj.json#/definitions/CI_Citation"
         },
         "dateTime": {
           "type": "array",
           "items": {
-            "$ref": "mdj.json#/definitions/DateOrDateTime"
+            "$ref": "https://eovoc.github.io/eo-books/schemas/v0.0.1/mdj.json#/definitions/DateOrDateTime"
           },
           "uniqueItems": true
         },
         "referenceDoc": {
           "type": "array",
           "items": {
-            "$ref": "mdj.json#/definitions/CI_Citation"
+            "$ref": "https://eovoc.github.io/eo-books/schemas/v0.0.1/mdj.json#/definitions/CI_Citation"
           },
           "uniqueItems": true
         },
@@ -1225,7 +1226,7 @@
       "type": "object",
       "properties": {
         "citation": {
-          "$ref": "mdj.json#/definitions/CI_Citation"
+          "$ref": "https://eovoc.github.io/eo-books/schemas/v0.0.1/mdj.json#/definitions/CI_Citation"
         }
       },
       "required": [
