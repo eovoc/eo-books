@@ -1,0 +1,215 @@
+{
+	"bbox": [
+		-77.38244,
+		-1.9621029,
+		-76.55338,
+		-0.5793365
+	],
+	"geometry": {
+		"coordinates": [
+			[
+				[
+					-77.38244,
+					-1.8435793
+				],
+				[
+					-76.81995,
+					-1.9621029
+				],
+				[
+					-76.55338,
+					-0.6989397
+				],
+				[
+					-77.11765,
+					-0.5793365
+				],
+				[
+					-77.38244,
+					-1.8435793
+				]
+			]
+		],
+		"type": "Polygon"
+	},
+	"id": "BIO_FP_FD__L2A_20251006T231917_20251021T231931_C_G___M___C___T____F156_01_DIEV9F?mode=owc",
+	"type": "Feature",
+	"properties": {
+		"date": "2025-10-06T23:19:17.460Z/2025-10-21T23:19:31.059Z",
+		
+		
+		"productInformation": {
+			"processingCenter": "Biomass CPF",
+			"productVersion": "01",
+			"processingLevel": "2A",
+			"processingDate": "2025-11-20T20:51:15Z",
+			"processorName": "Biomass L2a Processor",
+			"processorVersion": "4.1.1",
+			"processingMode": "OPERATIONAL",
+			"productType": "FP_FD__L2A",
+			
+			"resourceLineage": [
+				{
+					"processStep": [
+						{
+							"description": "L2A",
+							"stepDateTime": {
+								"created": "2025-11-20T20:51:15Z"
+							},
+							"processor": [
+								{
+									"role": "processor",
+									"party": [
+										{
+											"name": "Biomass CPF",
+											"type": "CI_Organisation"
+										}
+									]
+								}
+							],
+							"reference": [
+								{
+									"title": "BIOMASS Forest Disturbance Product Format Specification (BPS_FD_PFD) V3.2.1",
+									"edition": "3.2.1"
+								},
+								{
+									"title": "BIOMASS Product Performance Description (BPS_PPD)",
+									"edition": "3.1.0"
+								}
+							],
+							"source": [
+								{
+									"sourceCitation": {
+										"title": "BIO_S2_STA__1S_20251012T231914_20251012T231935_C_G___M___C___T____F156_01_DHQZTP"
+									},
+									"sourceMetadata": [
+										{
+											"title": "BIO_S2_STA__1S_20251012T231914_20251012T231935_C_G___M___C___T____F156_01_DHQZTP",
+											"onlineResource": [
+												{
+													"linkage": "https://catalog.maap.eo.esa.int/catalogue/BiomassLevel2aIOC/collections/items/BIO_S2_STA__1S_20251012T231914_20251012T231935_C_G___M___C___T____F156_01_DHQZTP"
+												}
+											]
+										}
+									]
+								},
+								{
+									"sourceCitation": {
+										"title": "BIO_S2_STA__1S_20251006T231917_20251006T231938_C_G___M___C___T____F156_01_DHQZSU"
+									}
+								},
+								{
+									"sourceCitation": {
+										"title": "BIO_S2_STA__1S_20251021T231910_20251021T231931_C_G___M___C___T____F156_01_DHQZT9"
+									}
+								}
+							],
+							"processingInformation": {
+								"softwareReference": {
+									"title": "Biomass L2a Processor",
+									"edition": "4.1.1"
+								}
+							},
+							"output": [
+								{
+									"sourceCitation": {
+										"title": "BIO_FP_FD__L2A_20251006T231917_20251021T231931_C_G___M___C___T____F156_01_DIEV9F"
+									}
+								}
+							]
+						}
+					]
+				}
+			],
+			"qualityInformation": {
+				"scope": {
+					"level": "dataset"
+				},
+				"report": [
+					{
+						"result": [
+							{
+								"valueUnit": "%",
+								"type": "QuantitativeResult",
+								"value": [
+									0
+								]
+							}
+						],
+						"measure": {
+							"measureIdentification": {
+								"code": "211",
+								"authority": {
+									"alternateTitle": [
+										"ISO"
+									],
+									"title": "International Organization for Standardization"
+								},
+								"codeSpace": "https://standards.isotc211.org/19157/-3/1/dqc/content/qualityMeasure/"
+							},
+							"measureDescription": "Quality degradation - rate of imperfect coverage.",
+							"nameOfMeasure": [
+								"MD211"
+							]
+						},
+						"evaluationMethod": [
+							{
+								"type": "FullInspection",
+								"evaluationMethodDescription": "Automatic quality degradation check."
+							}
+						],
+						"type": "Omission"
+					}
+				]
+			}
+		},
+		
+		"published": "2025-11-20T20:55:31.916Z",
+		"title": "BIO_FP_FD__L2A_20251006T231917_20251021T231931_C_G___M___C___T____F156_01_DIEV9F",
+		
+		
+
+		"updated": "2026-02-05T08:32:57Z",
+		"acquisitionInformation": [
+			{
+				"acquisitionParameters": {
+					"operationalMode": "SM",
+					"acquisitionType": "NOMINAL",
+					"beginningDateTime": "2025-10-06T23:19:17.460Z",
+					"wrsLongitudeGrid": "NA",
+					"wrsLatitudeGrid": "156",
+					"swathIdentifier": "S2",
+					"antennaLookDirection": "LEFT",
+					"endingDateTime": "2025-10-21T23:19:31.059Z",
+					"orbitDirection": "DESCENDING"
+				},
+				"instrument": {
+					"instrumentShortName": "P-SAR",
+					"sensorType": "RADAR"
+				},
+				"platform": {
+					"platformShortName": "Biomass",
+                    "orbitType": "LEO"
+				}
+			}
+		],
+		"status": "ACQUIRED",
+		"additionalAttributes": {
+			"refDoc": [
+				"BIOMASS Forest Disturbance Product Format Specification (BPS_FD_PFD) V3.2.1",
+				"BIOMASS Product Performance Description (BPS_PPD) V3.1.0"
+			],
+			"sourceProduct": [
+				"BIO_S2_STA__1S_20251012T231914_20251012T231935_C_G___M___C___T____F156_01_DHQZTP",
+				"BIO_S2_STA__1S_20251006T231917_20251006T231938_C_G___M___C___T____F156_01_DHQZSU",
+				"BIO_S2_STA__1S_20251021T231910_20251021T231931_C_G___M___C___T____F156_01_DHQZT9"
+			],
+			"globalCoverageID": "NA",
+			"tileID": "S02W078",
+			"openIdConnectUrl": "https://iam.ascend.icsgate.eu/realms/esa-maap/.well-known/openid-configuration",
+			"missionPhase": "COMMISSIONING",
+			"basinID": "B100",
+			"majorCycleID": "NA"
+		}
+	}
+}
