@@ -67,7 +67,7 @@
 					"type": "array",
 					"uniqueItems": true,
 					"items": {
-						"$ref": "mdj.json#/definitions/LI_Lineage"
+						"$ref": "https://eovoc.github.io/eo-books/schemas/v0.0.1/mdj.json#/definitions/LI_Lineage"
 					}
 				},
 				"processingLevel": {
@@ -770,7 +770,7 @@
 		"QualityInformation": {
 			"anyOf": [
 				{
-					"$ref": "dqc.json#/definitions/DataQuality"
+					"$ref": "https://eovoc.github.io/eo-books/schemas/v0.0.1/dqc.json#/definitions/DataQuality"
 				},
 				{
 					"type": "object",
